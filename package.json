@@ -1,0 +1,27 @@
+{
+  "name": "nver",
+  "version": "0.0.1",
+  "description": "Fast and easy-to-use semantic versioning (semver) tool for node packages",
+  "main": "dist/nver.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpstevens/nver.git"
+  },
+  "keywords": [
+    "semver",
+    "auto",
+    "automatic",
+    "semantic",
+    "version",
+    "control"
+  ],
+  "author": "Jack Stevens <jack@applyr.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpstevens/nver/issues"
+  },
+  "homepage": "https://github.com/jpstevens/nver"
+}
