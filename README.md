@@ -29,7 +29,7 @@ nver up --patch
 
 When calling the ```nver``` command, it will assume you want to go up, and assume you want to go up at the patch-level, as this is the most common use case when changing semantic versions.
 
-### Increment minor version:
+### Increment minor and major versions:
 
 To increment a minor version, simply enter ```nver --minor```:
 
@@ -40,7 +40,6 @@ nver --minor
 
 And to increment a major version, enter ```nver --major```:
 
-### Increment major version:
 ```bash
 nver --major
 > Major version incremented to 1.1.3 (was 0.1.3)
