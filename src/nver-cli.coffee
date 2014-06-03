@@ -14,7 +14,7 @@ opt  = require("node-getopt").create([
 ])             # create Getopt instance
 .parseSystem() # parse command line
 
-pkgManager = new PkgManager({ filePath: path.resolve(__dirname, "..", "package.json") })
+pkgManager = new PkgManager({ filePath: path.resolve(".", "package.json") })
 
 getMethod = (args) ->
   return "increment" if args.length is 0

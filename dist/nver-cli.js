@@ -1,5 +1,5 @@
 (function() {
-  var PkgManager, capitalize, fs, getLevel, getMethod, level, method, newVer, nodeGetOpt, nver, path, pkgManager, ver;
+  var PkgManager, capitalize, fs, getLevel, getMethod, level, method, newVer, nver, opt, path, pkgManager, ver;
 
   fs = require("fs");
 
@@ -11,15 +11,11 @@
 
   capitalize = require("capitalize");
 
-  nodeGetOpt = require("node-getopt");
+  opt = require("node-getopt").create([["", "up", "increment "], ["", "down", "long option."], ["", "patch", "long option."], ["", "minor", "mino"], ["", "major", "mino"], ["h", "help", "display this help"], ["v", "version", "show version"]]).parseSystem();
 
   pkgManager = new PkgManager({
-    filePath: path.resolve__dirname,
-    "..": "..",
-    "package.json": "package.json"
+    filePath: path.resolve(".", "package.json")
   });
-
-  nodeGetOpt.create([["", "up", "increment "], ["", "down", "long option."], ["", "patch", "long option."], ["", "minor", "mino"], ["", "major", "mino"], ["h", "help", "display this help"], ["v", "version", "show version"]]).parseSystem();
 
   getMethod = function(args) {
     if (args.length === 0) {
