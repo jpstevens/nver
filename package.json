@@ -1,10 +1,13 @@
 {
   "name": "nver",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "Fast and easy-to-use semantic versioning (semver) tool for node packages",
-  "main": "dist/nver.js",
+  "bin": {
+    "nver": "bin/nver"
+  },
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha -c --recursive --compilers coffee:coffee-script/register",
+    "prepublish": "grunt build"
   },
   "repository": {
     "type": "git",
@@ -23,5 +26,19 @@
   "bugs": {
     "url": "https://github.com/jpstevens/nver/issues"
   },
-  "homepage": "https://github.com/jpstevens/nver"
+  "homepage": "https://github.com/jpstevens/nver",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.20.0",
+    "coffee-script": "^1.7.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-coffeelint": "0.0.10",
+    "grunt-contrib-clean": "^0.5.0"
+  },
+  "dependencies": {
+    "semver": "^2.3.0",
+    "node-getopt": "^0.2.3",
+    "capitalize": "^0.5.0"
+  }
 }

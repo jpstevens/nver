@@ -1,0 +1,1 @@
+exports.exec = (cmd) -> console.log cmd 
