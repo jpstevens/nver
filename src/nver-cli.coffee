@@ -1,12 +1,12 @@
 fs   = require "fs"
 path = require "path"
 nver = require "./nver"
+opt  = require "node-getopt"
 PkgManager = require "./pkg-manager"
 capitalize = require "capitalize"
-nodeGetOpt  = require "node-getopt"
 
 pkgManager = new PkgManager({ filePath: path.resolve__dirname, "..", "package.json" })
-nodeGetOpt.create([
+opt.create([
   ["" , "up", "increment "],
   ["" , "down", "long option." ],
   ["" , "patch", "long option." ],
