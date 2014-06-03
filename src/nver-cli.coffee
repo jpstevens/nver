@@ -1,12 +1,9 @@
 fs   = require "fs"
 path = require "path"
 nver = require "./nver"
-opt  = require "node-getopt"
 PkgManager = require "./pkg-manager"
 capitalize = require "capitalize"
-
-pkgManager = new PkgManager({ filePath: path.resolve__dirname, "..", "package.json" })
-opt.create([
+opt  = require("node-getopt").create([
   ["" , "up", "increment "],
   ["" , "down", "long option." ],
   ["" , "patch", "long option." ],
@@ -17,6 +14,7 @@ opt.create([
 ])             # create Getopt instance
 .parseSystem() # parse command line
 
+pkgManager = new PkgManager({ filePath: path.resolve(__dirname, "..", "package.json") })
 
 getMethod = (args) ->
   return "increment" if args.length is 0
@@ -53,4 +51,3 @@ else if (method is "init")
   pkgManager.setVersion "0.0.0"
   newVer = pkgManager.getVersion()
   console.log "Patch version initialized to #{newVer}"
-
