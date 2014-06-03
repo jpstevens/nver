@@ -1,9 +1,12 @@
 fs   = require "fs"
 path = require "path"
 nver = require "./nver"
-pkgChanger = require "./nver-pkg-changer"
+PkgManager = require "./pkg-manager"
 capitalize = require "capitalize"
-opt  = require("node-getopt").create([
+nodeGetOpt  = require "node-getopt"
+
+pkgManager = new PkgManager({ filePath: path.resolve__dirname, "..", "package.json" })
+nodeGetOpt.create([
   ["" , "up", "increment "],
   ["" , "down", "long option." ],
   ["" , "patch", "long option." ],
@@ -13,6 +16,7 @@ opt  = require("node-getopt").create([
   ["v" , "version", "show version"]
 ])             # create Getopt instance
 .parseSystem() # parse command line
+
 
 getMethod = (args) ->
   return "increment" if args.length is 0
@@ -37,16 +41,16 @@ getLevel = (options) ->
 
 method = getMethod(opt.argv)
 level = getLevel(opt.options)
-ver = pkgChanger.getVersion()
+ver = pkgManager.getVersion()
 
 if ["increment", "decrement"].indexOf(method) >= 0
-  pkgChanger.updateVersion nver[method](ver, level)
-  newVer = pkgChanger.getVersion()
+  pkgManager.setVersion nver[method](ver, level)
+  newVer = pkgManager.getVersion()
   console.log "#{capitalize(level)} version #{method}ed to #{newVer} (was #{ver})"
 else if (method is "current")
-  console.log pkgChanger.getVersion()
+  console.log pkgManager.getVersion()
 else if (method is "init")
-  pkgChanger.updateVersion "0.0.0"
-  newVer = pkgChanger.getVersion()
+  pkgManager.setVersion "0.0.0"
+  newVer = pkgManager.getVersion()
   console.log "Patch version initialized to #{newVer}"
 

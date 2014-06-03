@@ -1,5 +1,5 @@
 (function() {
-  var capitalize, fs, getLevel, getMethod, level, method, newVer, nver, opt, path, pkgChanger, ver;
+  var PkgManager, capitalize, fs, getLevel, getMethod, level, method, newVer, nodeGetOpt, nver, path, pkgManager, ver;
 
   fs = require("fs");
 
@@ -7,11 +7,19 @@
 
   nver = require("./nver");
 
-  pkgChanger = require("./nver-pkg-changer");
+  PkgManager = require("./pkg-manager");
 
   capitalize = require("capitalize");
 
-  opt = require("node-getopt").create([["", "up", "increment "], ["", "down", "long option."], ["", "patch", "long option."], ["", "minor", "mino"], ["", "major", "mino"], ["h", "help", "display this help"], ["v", "version", "show version"]]).parseSystem();
+  nodeGetOpt = require("node-getopt");
+
+  pkgManager = new PkgManager({
+    filePath: path.resolve__dirname,
+    "..": "..",
+    "package.json": "package.json"
+  });
+
+  nodeGetOpt.create([["", "up", "increment "], ["", "down", "long option."], ["", "patch", "long option."], ["", "minor", "mino"], ["", "major", "mino"], ["h", "help", "display this help"], ["v", "version", "show version"]]).parseSystem();
 
   getMethod = function(args) {
     if (args.length === 0) {
@@ -58,17 +66,17 @@
 
   level = getLevel(opt.options);
 
-  ver = pkgChanger.getVersion();
+  ver = pkgManager.getVersion();
 
   if (["increment", "decrement"].indexOf(method) >= 0) {
-    pkgChanger.updateVersion(nver[method](ver, level));
-    newVer = pkgChanger.getVersion();
+    pkgManager.setVersion(nver[method](ver, level));
+    newVer = pkgManager.getVersion();
     console.log("" + (capitalize(level)) + " version " + method + "ed to " + newVer + " (was " + ver + ")");
   } else if (method === "current") {
-    console.log(pkgChanger.getVersion());
+    console.log(pkgManager.getVersion());
   } else if (method === "init") {
-    pkgChanger.updateVersion("0.0.0");
-    newVer = pkgChanger.getVersion();
+    pkgManager.setVersion("0.0.0");
+    newVer = pkgManager.getVersion();
     console.log("Patch version initialized to " + newVer);
   }
 
