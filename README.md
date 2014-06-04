@@ -6,7 +6,9 @@ Command-line version control tool (semver) for node packages
 
 As always, run:
 
-``` npm install ```
+```
+npm install
+```
 
 ## Example Usage
 
@@ -96,15 +98,23 @@ nver init
 
 This package is tested using Mocha (with Chai). To run the tests, use:
 
-``` npm test ```
+```
+npm test
+```
+
+Which runs the ``` grunt test ``` command.
 
 If you'd just like to run a particular set of tests (e.g. unit, feature), run:
 
-``` grunt test:unit ```
+```
+grunt test:unit
+```
 
 Or:
 
-``` grunt test:feature ```
+```
+grunt test:feature
+```
 
 These tests are designed to be idempotent. Moreover, each time they are run they will:
 - build the app
