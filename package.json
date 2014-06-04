@@ -1,6 +1,6 @@
 {
   "name": "nver",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Fast and easy-to-use semantic versioning (semver) tool for node packages",
   "bin": {
     "nver": "dist/bin/nver"
