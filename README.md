@@ -2,7 +2,13 @@
 
 Command-line version control tool (semver) for node packages
 
-## Example Usage:
+## Installation
+
+As always, run:
+
+``` npm install ```
+
+## Example Usage
 
 ### Increment patch version (default):
 
@@ -85,3 +91,28 @@ No need to panic; you can set the version using ```nver init```:
 nver init
 > Package version initialized to 0.0.1
 ```
+
+## Testing
+
+This package is tested using Mocha (with Chai). To run the tests, use:
+
+``` npm test ```
+
+If you'd just like to run a particular set of tests (e.g. unit, feature), run:
+
+``` grunt test:unit ```
+
+Or:
+
+``` grunt test:feature ```
+
+These tests are designed to be idempotent. Moreover, each time they are run they will:
+- build the app
+- run the tests
+- tear down the build (once tests have been completed)
+
+## Development
+
+If you'd like to build the package yourself, you can run the ``` grunt build ``` command. This will create a ```/dist``` directory with the build source files, and create a ```/dist/bin``` dir, which contains the binary wrapper for running the nver-cli.
+
+To find out more about the build process, please take a look at the Gruntfile.
