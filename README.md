@@ -35,14 +35,14 @@ To increment a minor version, simply enter ```nver --minor```:
 
 ```bash
 nver --minor
-> Minor version incremented to 0.1.3 (was 0.0.3)
+> Minor version incremented to 0.1.0 (was 0.0.3)
 ```
 
 And to increment a major version, enter ```nver --major```:
 
 ```bash
 nver --major
-> Major version incremented to 1.1.3 (was 0.1.3)
+> Major version incremented to 1.0.0 (was 0.1.3)
 ```
 
 ### Decrementing version:
