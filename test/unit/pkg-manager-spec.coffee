@@ -6,17 +6,15 @@ PkgManager = require "../../src/pkg-manager"
 describe "nverPkgChanger", ->
 
   pkgManager = null
+  testPackageJSONPath = path.resolve path.resolve(__dirname, "..", ".tmp"), "package.json"
+  fixturePackageJSON = fs.readFileSync path.resolve(__dirname
+    , ".."
+    , "fixtures"
+    ,  "package.json"), 'utf-8'
 
-  tmpDir = path.resolve __dirname, "..", ".tmp"
-  testPackageJSONPath = path.resolve tmpDir, "package.json"
   getTestPackageJSON = -> fs.readFileSync testPackageJSONPath, 'utf-8'
 
-  fixturePackageJSONPath = path.resolve __dirname, "..", "fixtures", "package.json"  
-  fixturePackageJSON = fs.readFileSync fixturePackageJSONPath, 'utf-8'
-
   beforeEach ->
-    # make the dir 
-    fs.mkdirSync tmpDir
     # create the package.json file in the .tmp dir
     fs.writeFileSync testPackageJSONPath, fixturePackageJSON
     # init our pkg manager
@@ -25,8 +23,6 @@ describe "nverPkgChanger", ->
   afterEach ->
     # remove the package.json from the .tmp dir
     fs.unlinkSync testPackageJSONPath
-    # remove the dir 
-    fs.rmdirSync tmpDir
     # reset our pkg manager
     pkgManager = null
 

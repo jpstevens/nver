@@ -2,6 +2,9 @@
 
 Command-line version control tool (semver) for node packages
 
+# generator-node-module-coffee [![Build Status](https://secure.travis-ci.org/jpstevens/nver.png?branch=master)](https://travis-ci.org/jpstevens/nver)
+
+
 ## Example Usage:
 
 ### Increment patch version (default):

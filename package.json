@@ -1,13 +1,13 @@
 {
   "name": "nver",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Fast and easy-to-use semantic versioning (semver) tool for node packages",
   "bin": {
-    "nver": "bin/nver"
+    "nver": "dist/bin/nver"
   },
   "scripts": {
     "test": "mocha -c --recursive --compilers coffee:coffee-script/register",
-    "prepublish": "grunt build"
+    "prepublish": "grunt"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,13 @@
     "grunt": "^0.4.5",
     "grunt-contrib-coffee": "^0.10.1",
     "grunt-coffeelint": "0.0.10",
-    "grunt-contrib-clean": "^0.5.0"
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-mocha-test": "^0.11.0",
+    "grunt-remove": "^0.1.0",
+    "grunt-mkdir": "^0.1.1",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-file-creator": "^0.1.1",
+    "grunt-chmod": "^1.0.3"
   },
   "dependencies": {
     "semver": "^2.3.0",
