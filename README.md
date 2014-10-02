@@ -10,7 +10,7 @@ Command-line version control tool (semver) for node packages
 As always, run:
 
 ```
-npm install
+npm install nver -g
 ```
 
 ## Example Usage
