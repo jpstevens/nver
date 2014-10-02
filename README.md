@@ -1,4 +1,7 @@
-# nver [![Build Status](https://secure.travis-ci.org/jpstevens/nver.png?branch=master)](https://travis-ci.org/jpstevens/nver)
+# nver
+
+[![Build Status](https://secure.travis-ci.org/jpstevens/nver.png?branch=master)](https://travis-ci.org/jpstevens/nver)
+![Downloads/month](http://img.shields.io/npm/dm/nver.svg)
 
 Command-line version control tool (semver) for node packages
 
